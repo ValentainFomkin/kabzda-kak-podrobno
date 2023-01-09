@@ -1,9 +1,11 @@
 import React, {useState} from 'react';
 
-type OnOffPropsType = {}
+type OnOffPropsType = {
+    defaultValue?: boolean
+}
 
 export const UnControledOnOff = (props: OnOffPropsType) => {
-    let [value, setValue] = useState(false)
+    let [value, setValue] = useState(props.defaultValue ? props.defaultValue : false)
 
     const onButtonStyle = {
         backgroundColor: value ? 'green' : '',

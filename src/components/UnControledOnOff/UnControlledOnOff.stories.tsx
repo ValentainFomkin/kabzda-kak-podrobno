@@ -10,7 +10,6 @@ export default {
 
 const callBack = action('')
 
-export const ModeCollapsed = () => {
+export const ModeCollapsedOn = () => <UnControledOnOff defaultValue={true}/>
+export const ModeCollapsedOff = () => <UnControledOnOff defaultValue={false}/>
 
-    return <UnControledOnOff/>
-}

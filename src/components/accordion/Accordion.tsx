@@ -1,9 +1,17 @@
 import React from 'react';
 
+
+type ItemType = {
+    title: string
+    value: any
+}
+
 type AccordionPropsType = {
     titleValue: string
     accordion: boolean
     setAccordion: (accordion: boolean) => void
+    items: ItemType[]
+    onClick: (value: any) => void
 }
 
 export const Accordion = (props: AccordionPropsType) => {
@@ -17,9 +25,7 @@ export const Accordion = (props: AccordionPropsType) => {
                        title={props.titleValue}/>
             {props.accordion &&
                 <div>
-                    <AccordionBody number={1}/>
-                    <AccordionBody number={2}/>
-                    <AccordionBody number={3}/>
+                    <AccordionBody items={props.items} onClick={props.onClick}/>
                 </div>}
         </div>
     )
@@ -38,12 +44,15 @@ export const PageTitle = (props: PageTitlePropsType) => {
 }
 
 type AccordionBodyPropsType = {
-    number: number
+    items: ItemType[]
+    onClick: (value: any) => void
 }
 export const AccordionBody = (props: AccordionBodyPropsType) => {
     return (
         <ul>
-            <li>{props.number}</li>
+            {props.items.map((i, index) => <li onClick={() => {
+                props.onClick(i.value)
+            }} key={index}>{i.title}</li>)}
         </ul>
     )
 }
