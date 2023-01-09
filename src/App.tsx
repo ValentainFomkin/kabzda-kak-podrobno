@@ -1,11 +1,11 @@
 import React, {useState} from 'react';
 import './App.css';
 import {Rating, RatingValueType} from "./components/Rating/Rating/Rating";
-import {UnControlledRating} from "./components/unControledRating/unControledRating/UnControlledRating";
-import {UnControledAccordion} from "./components/unControledAccordion/unControledAccordion";
+import {UnControledAccordion} from "./components/UnControledAccordion/UnControledAccordion";
 import {Accordion} from "./components/accordion/Accordion";
 import {UnControledOnOff} from "./components/UnControledOnOff/UnControledOnOff";
 import {OnOff} from "./components/OnOff/OnOff";
+import {UnControlledRating} from "./components/unControledRating/UnControlledRating";
 
 function App() {
 
@@ -20,8 +20,8 @@ function App() {
             <Rating value={ratingValue}
                     setRatingValue={setRatingValue}/>
 
-            <UnControledAccordion titleValue={'Menu'}/>
 
+            <UnControledAccordion titleValue={'Menu'}/>
             <Accordion titleValue={'Users'}
                        accordion={accordionCollapsed}
                        setAccordion={setAccordionCollapsed}/>
