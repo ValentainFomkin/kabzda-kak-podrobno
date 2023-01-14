@@ -4,11 +4,11 @@ export default {
     title: 'React.memo demo'
 }
 
-export const Counter = (props: { count: number }) => {
+const Counter = (props: { count: number }) => {
     return <div>{props.count}</div>
 }
 
-export const UserSecret = memo((props: { users: Array<string> }) => {
+const UserSecret = memo((props: { users: Array<string> }) => {
     console.log('PRIVET!!!')
     return (
         <div>
@@ -20,9 +20,30 @@ export const UserSecret = memo((props: { users: Array<string> }) => {
 export const Example1 = () => {
     const [counter, setCounter] = useState(0)
     const [users, setUsers] = useState(['valera', 'dima', 'valya', 'alina'])
+    console.log(counter)
+    console.log(users)
 
+
+    const countSum = () => {
+
+        setCounter(counter + 1)
+    }
+
+    const addUser = () => {
+        const newUser = 'Sveta'
+        setUsers([
+            newUser,
+            ...users
+        ])
+    }
+
+    const restNewUsers = () => {
+        setUsers(['valera', 'dima', 'valya', 'alina'])
+    }
     return <>
-        <button onClick={() => setCounter(counter + 1)}>+</button>
+        <button onClick={countSum}>+</button>
+        <button onClick={addUser}>add user</button>
+        <button onClick={restNewUsers}>rest users</button>
         <Counter count={counter}/>
         <UserSecret users={users}/>
     </>
